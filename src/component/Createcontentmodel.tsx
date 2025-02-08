@@ -5,7 +5,7 @@ import axios from "axios";
 import { BACKEND_URL } from "../config";
 import { Button } from "./Button";
 
-enum ContentType  {
+export enum ContentType  {
    Youtube = "youtube",
    Twitter = "twitter"
 }
@@ -20,11 +20,17 @@ export const CreateContentModal= ({open,onClose}) => {
     const title = titleRef.current?.value;
     const link = linkRef.current?.value;
 
+    
     await axios.post(`${BACKEND_URL}/api/v1/content`, {
       link,
       title,
       type
+    },{
+      headers :{
+        "Authorization": localStorage.getItem("token")
+      }
     })
+    onClose();
   }
 
 
