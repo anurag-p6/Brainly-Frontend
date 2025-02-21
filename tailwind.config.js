@@ -17,6 +17,9 @@ export default {
           500:"#9492db",
           600:"#6f29f0"
         }
+      },
+      fontFamily:{
+        
       }
     },
   },

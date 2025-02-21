@@ -2,9 +2,10 @@ import { forwardRef } from "react";
 
 export const Input = forwardRef<HTMLInputElement, { 
   placeholder: string; 
+  onKeyDown?: () => void;
   reference?: React.Ref<HTMLInputElement>; 
   type?: string; 
-}>(({ placeholder, reference, type }, ref) => {
+}>(({ placeholder, reference,onKeyDown, type }, ref) => {
   return (
     <div className="pb-4"> 
       <input
@@ -12,6 +13,8 @@ export const Input = forwardRef<HTMLInputElement, {
         type={type} 
         className="h-16 w-[300px] placeholder-gray-500 p-4 border rounded-md border-gray-400" 
         placeholder={placeholder} 
+        onKeyDown={onKeyDown}
+
       />
     </div>
   );
